@@ -16,11 +16,6 @@ const server = hapi.server({
   host: 'localhost'
 })
 
-mongoose.connect('mongodb://xiro:x1ro-gaugau@ds161740.mlab.com:61740/xiro-api')
-
-mongoose.connection.once('open', () => {
-  console.log('connectd to database');
-})
 
 const init = async() => {
   await server.register(
