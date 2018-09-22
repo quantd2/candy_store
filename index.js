@@ -13,10 +13,13 @@ require('./models/db');
 
 
 var port = process.env.PORT || 3000;
+var host = "localhost:3000";
+if (process.env.NODE_ENV === "production") {
+  host = "https://best-friend-api.herokuapp.com"
+}
 
 const server = hapi.server({
   port: port,
-  host: '0.0.0.0'
 })
 
 
@@ -51,6 +54,7 @@ const init = async() => {
   {
     plugin: HapiSwagger,
     options: {
+      host: host,
       info: {
         title: 'Dog API Documentation',
         version: Pack.version
