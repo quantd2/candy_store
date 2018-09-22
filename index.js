@@ -13,8 +13,10 @@ require('./models/db');
 
 
 var port = process.env.PORT || 3000;
+var host = process.env.HOST || "localhost"
 const server = hapi.server({
-  port: port
+  port: port,
+  host: host
 })
 
 
@@ -48,6 +50,7 @@ const init = async() => {
   Vision,
   {
     plugin: HapiSwagger,
+    host: host,
     options: {
       info: {
         title: 'Dog API Documentation',
