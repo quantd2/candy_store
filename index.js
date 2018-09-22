@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Dog = require('./models/Dog');
 const {graphqlHapi, graphiqlHapi} = require('apollo-server-hapi');
 const schema = require('./graphql/schema');
-
+const Joi = require('joi');
 // swagger section
 const Inert = require('inert');
 const Vision = require('vision');
@@ -86,7 +86,12 @@ const init = async() => {
       path: '/api/v1/dogs',
       config: {
         description: 'Add new dog',
-        tags: ['api', 'v1', 'dogs']
+        tags: ['api', 'v1', 'dogs'],
+        validate: {
+            payload: {
+                name: Joi.string().max(10)
+            }
+        }
       },
       handler: (req, res) => {
         const {name, description, characteristics} = req.payload;
