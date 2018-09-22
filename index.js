@@ -11,9 +11,10 @@ const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package');
 require('./models/db');
 
+
+var port = process.env.PORT || 3000;
 const server = hapi.server({
-  port: (process.env.PORT || 3000),
-  host: 'localhost'
+  port: port
 })
 
 
