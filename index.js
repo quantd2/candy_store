@@ -15,7 +15,7 @@ require('./models/db');
 var port = process.env.PORT || 3000;
 var host = "localhost:3000";
 if (process.env.NODE_ENV === "production") {
-  host = "https://best-friend-api.herokuapp.com"
+  host = "best-friend-api.herokuapp.com"
 }
 
 const server = hapi.server({
