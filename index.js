@@ -12,7 +12,7 @@ const Pack = require('./package');
 require('./models/db');
 
 const server = hapi.server({
-  port: 4000,
+  port: 3000,
   host: 'localhost'
 })
 
