@@ -54,7 +54,6 @@ const init = async() => {
   Vision,
   {
     plugin: HapiSwagger,
-    host: host,
     options: {
       info: {
         title: 'Dog API Documentation',
